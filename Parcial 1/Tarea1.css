@@ -1,0 +1,38 @@
+
+
+
+#imagen{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+   
+    padding: 20px;
+        margin: 20px;
+        width: 350px;
+}
+
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background-color: rgb(112, 92, 202);
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:focus {
+    outline: none
+}
