@@ -1,0 +1,34 @@
+#broma {
+
+    display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        padding: 20px;
+        margin: 20px;
+        width: 350px;
+}
+
+body{font-family:Arial; background-color: #00bc90; box-sizing: border-box;}
+
+.form {
+    font-size: 20px;
+}
+
+#btnBroma{
+    background-color: rgb(112, 92, 202);
+        border: 0;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 18px;
+        padding: 10px;
+        margin: 10px;
+        width: 100px;
+}
+
+input,apellido{
+    border:0;
+    outline:none;
+   width: 100px;
+padding: 10px;
+} 

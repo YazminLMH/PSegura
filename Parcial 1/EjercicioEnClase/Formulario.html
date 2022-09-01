@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="Formulario.css">
+    <link rel="shortcut icon" href="#">
+    
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+
+
+
+    <label for="Nombre" class="control-label">Nombre</label>
+    <input id="Nombre"  type="text" class="form-control" placeholder="Nombre" />
+
+    <label for="apellido" class="control-label">Apellido</label>
+    <input id="apellido"  type="text" class="form-control" placeholder="apellido" />
+
+    <button id="btnBroma" type="button" class="btn btn-primary" title="GetBroma">GetBroma</button>
+    
+    <textarea name="broma" id="broma" cols="30" rows="10"></textarea>
+    </div>
+    
+    <script>
+ 
+        document.getElementById('btnBroma').addEventListener('click', async function() {//esta funcion se llama despues del click
+            var nombre = document.getElementById('Nombre').value;
+        var apellido = document.getElementById('apellido').value;
+        console.log(Nombre);
+        console.log(apellido);
+        let dato = await hacerPeticion();//la variable "espera" el resultado de esta funcion
+        console.log(dato);//manda el dato a la consola
+        document.getElementById('broma').value=dato.value.joke//se manda como fuente de img
+             });
+        async function hacerPeticion() {
+            let respuesta = await fetch(`http://api.icndb.com/jokes/random?firstName=${Nombre.value}&lastName=${apellido.value}`)//hace el fetch
+                let datojson = await respuesta.json();//se mete el valor a esta variable recien declarada
+                return datojson;
+            }
+
+            
+</script>
+
+     
+   
+</body>
+</html>
