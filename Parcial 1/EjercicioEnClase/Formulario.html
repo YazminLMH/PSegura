@@ -27,25 +27,24 @@
     
     <script>
  
-        document.getElementById('btnBroma').addEventListener('click', async function() {//esta funcion se llama despues del click
+        document.getElementById('btnBroma').addEventListener('click', async function() {
             var nombre = document.getElementById('Nombre').value;
         var apellido = document.getElementById('apellido').value;
         console.log(Nombre);
         console.log(apellido);
-        let dato = await hacerPeticion();//la variable "espera" el resultado de esta funcion
-        console.log(dato);//manda el dato a la consola
-        document.getElementById('broma').value=dato.value.joke//se manda como fuente de img
+        let dato = await hacerPeticion();
+        console.log(dato);
+        document.getElementById('broma').value=dato.value.joke
              });
         async function hacerPeticion() {
             let respuesta = await fetch(`http://api.icndb.com/jokes/random?firstName=${Nombre.value}&lastName=${apellido.value}`)//hace el fetch
-                let datojson = await respuesta.json();//se mete el valor a esta variable recien declarada
+                let datojson = await respuesta.json();
                 return datojson;
             }
 
             
 </script>
 
-     
-   
-</body>
+
+  </body>
 </html>
