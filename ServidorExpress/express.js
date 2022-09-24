@@ -1,6 +1,11 @@
 //header('Access-Control-Allow-Origin: *');
 const express = require('express');
 const cors = require('cors')
+const {json}=require('express');
+var  morgan = require('morgan')
+
+var fs = require('fs')
+var path = require('path')
 
 const app = express()
 app.use(express.text())
@@ -8,21 +13,27 @@ app.use(express.json())
 
 app.use(cors({origin: "http://localhost"}))
 
+
+app.use((req, res, next) => {
+  console.log('Primer funcion middleware')
+  next()
+},(req,res,next)=>{
+  console.log('Segunda funcion middleware')
+  next();
+})
+
+//app.use(morgan(combined))
+var accessLogStream = fs.createWriteStream(path.join(__dirname,'access.log'),{flags:'a'});
+app.use(morgan('combined',{stream:accessLogStream}))
+
+
+
 app.get('/', (req, res) => {
     //res.send('Servidor Express contestando a get desde el pto 8081')
     res.sendFile('./Static/Index.html',{root:__dirname},(err)=>{console.log('Archivo enviado')})
 })
 
-app.post('/', (req, res) => {
-  //  res.send('Servidor Express contestando a post desde el pto 8081')
-//(descomentar esta linea) 
-res.json({usuario:'Myriam'})
-})
 
-app.use(function(req,res){
-res.status(404).sendFile('./Static/404.html',{root:__dirname})
-
-})
 
 app.post('/texto', (req, res) => {
   console.log(req.body)
@@ -43,7 +54,7 @@ app.post('/json',(req, res)=>{
 } )
 
 app.get('/mayusculas/:cadena', (req, res) => {
-  console.log(req,params)
+  console.log(req.params)
   res.send(req.params)
 })
 
@@ -59,4 +70,11 @@ app.listen(8083,() => {
     console.log(__filename)
 })
 
+app.use(function (req, res) {
+  res.status(404).sendFile('./Static/404.html', { root: __dirname })
+
+})
+
 //npm i cors //la misma carpeta 
+//middleware 
+//npm i morgan 
