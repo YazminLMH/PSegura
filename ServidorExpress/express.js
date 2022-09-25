@@ -14,17 +14,27 @@ app.use(express.json())
 app.use(cors({origin: "http://localhost"}))
 
 
-app.use((req, res, next) => {
+
+
+
+// create a write stream (in append mode)
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
+
+// setup the logger
+app.use(morgan('combined', { stream: accessLogStream }))
+
+
+app.use('/', (req, res, next) => {
   console.log('Primer funcion middleware')
   next()
-},(req,res,next)=>{
+}, (req, res, next) => {
   console.log('Segunda funcion middleware')
-  next();
-})
+  next()
+});
 
 //app.use(morgan(combined))
-var accessLogStream = fs.createWriteStream(path.join(__dirname,'access.log'),{flags:'a'});
-app.use(morgan('combined',{stream:accessLogStream}))
+// var accessLogStream = fs.createWriteStream(path.join(__dirname,'access.log'),{flags:'a'});
+// app.use(morgan('combined',{stream:accessLogStream}))
 
 
 

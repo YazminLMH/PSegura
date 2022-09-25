@@ -1,0 +1,8 @@
+::ffff:127.0.0.1 - - [25/Sep/2022:21:51:23 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0"
+::ffff:127.0.0.1 - - [25/Sep/2022:21:51:32 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0"
+::ffff:127.0.0.1 - - [25/Sep/2022:21:52:38 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0"
+::ffff:127.0.0.1 - - [25/Sep/2022:21:52:48 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0"
+::ffff:127.0.0.1 - - [25/Sep/2022:21:55:41 +0000] "POST /texto HTTP/1.1" 200 56 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [25/Sep/2022:21:55:45 +0000] "GET /mayusculas/HOLA HTTP/1.1" 200 17 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [25/Sep/2022:21:55:48 +0000] "GET /suma?x=10&y=20 HTTP/1.1" 200 13 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [25/Sep/2022:21:55:51 +0000] "POST /json HTTP/1.1" 200 34 "-" "Thunder Client (https://www.thunderclient.com)"
