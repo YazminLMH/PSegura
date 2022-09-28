@@ -6,3 +6,6 @@
 ::ffff:127.0.0.1 - - [25/Sep/2022:21:55:45 +0000] "GET /mayusculas/HOLA HTTP/1.1" 200 17 "-" "Thunder Client (https://www.thunderclient.com)"
 ::ffff:127.0.0.1 - - [25/Sep/2022:21:55:48 +0000] "GET /suma?x=10&y=20 HTTP/1.1" 200 13 "-" "Thunder Client (https://www.thunderclient.com)"
 ::ffff:127.0.0.1 - - [25/Sep/2022:21:55:51 +0000] "POST /json HTTP/1.1" 200 34 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [26/Sep/2022:13:30:57 +0000] "POST /texto HTTP/1.1" 200 56 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [26/Sep/2022:13:31:08 +0000] "POST /texto HTTP/1.1" 200 77 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [26/Sep/2022:13:52:00 +0000] "POST /texto HTTP/1.1" 200 77 "-" "Thunder Client (https://www.thunderclient.com)"
