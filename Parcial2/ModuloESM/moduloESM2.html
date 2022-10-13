@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <label for="cadena">Cadena </label>
+        <input id="cadena" type="text">
+        <button id="btn1">Mayusculas</button>
+        <button id="btn2">Espacios </button>
+<script type='module'>
+    //import { pasarMayusculas, quitarEspacios } from './modulocss'
+
+   
+   // import * as funciones from './moduloesm.js'
+    document.getElementById("btn1").addEventListener("click", function () {
+            import('./moduloesm.js')
+                .then(function (modulo) {
+                    let cad = document.getElementById("cadena").value;
+                    console.log("Cadena en Mayusculas: " + modulo.pasarMayusculas(cad))});
+
+                })
+   
+   
+   
+   document.getElementById("btn2").addEventListener("click", function () {
+        import('./moduloesm.js')
+            .then(function (modulo) {
+                let cad = document.getElementById("cadena").value;
+                console.log( modulo.quitarEspacios(cad))
+            });
+
+    })
+    
+
+</script>
+
+
+</body>
+</html>
