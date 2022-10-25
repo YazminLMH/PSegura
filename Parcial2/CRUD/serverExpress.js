@@ -5,7 +5,7 @@ var pool = sql.createPool({
     host: "localhost",
     database: "ejemplo",
     user: "root",
-    password: ""
+    password: "admin"
 });
 
 const app = xp()
