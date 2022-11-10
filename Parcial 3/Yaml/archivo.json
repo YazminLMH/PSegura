@@ -1,0 +1,16 @@
+{
+  "id": "ML3530",
+  "nombre": "Otros",
+  "permalink": null,
+  "Items": 80778,
+  "Ruta_productos": [
+    {
+      "id": "MOS53",
+      "nombre": "Otras categorías"
+    },
+    {
+      "id": "MO3530",
+      "nombre": "Otros"
+    }
+  ]
+}

@@ -5,13 +5,9 @@ const sql = require("mysql2");
 
 const app = express()
 
-app.use(cors({origin: 'http://localhost'}));
+app.use(cors({origin: '*'}));
 app.use(express.text())
 app.use(express.json())
-
-
-
-
 
 
 var pool = sql.createPool({
@@ -23,7 +19,7 @@ var pool = sql.createPool({
 
 
 
-app.get('/ConsultarEmpleado', function (req, res) {
+app.get('/Empleado', function (req, res) {
     console.log(req.body)
     if (req.body.idEmpleado == undefined) {
         pool.query('SELECT * FROM empleado', function (err, response, fields) {
@@ -37,7 +33,7 @@ app.get('/ConsultarEmpleado', function (req, res) {
     }
 })
 
-app.post('/InsertarEmpleado', function (req, res) {
+app.post('/Empleado', function (req, res) {
     console.log(req.body)
 
     let nombre = req.body.nombre
@@ -47,14 +43,18 @@ app.post('/InsertarEmpleado', function (req, res) {
     })
 })
 
-app.delete('/BorrarEmpleado', function (req, res) {
-    let IdEmpleado = req.body.IdEmpleado
-    pool.query(`DELETE FROM empleado WHERE IdEmpleado = '${IdEmpleado}'`, function (err, response, fields) {
-        res.send(`El registro con el id ${IdEmpleado} se a eliminado`)
+app.delete('/Empleado/:IdEmpleado', function (req, res) {
+   
+    pool.query(`DELETE FROM empleado WHERE IdEmpleado = '${req.params.IdEmpleado}'`, function (err, response, fields) {
+        res.send(`El empleado con el id ${req.params.IdEmpleado} se a Eliminado`)
     })
+
+
 })
 
-app.patch('/ActualizarEmpleado', function (req, res) {
+
+
+app.put('/Empleado', function (req, res) {
     let IdEmpleado = req.body.IdEmpleado
     nombre = req.body.nombre
     apellido = req.body.apellido
@@ -70,17 +70,5 @@ app.patch('/ActualizarEmpleado', function (req, res) {
 
 app.listen(2234)
 
-//const con = mysql.createConnection({
 
-  //  host: 'localhost',
-   // user: 'root',
-   // password: "",
-   // database: 'ejemplo'
-
-//});
-
-/*CREATE = POST
-READ = GET
-UPDATE = PUT / PATCH
-DELETE /= DELETE*/
 
