@@ -1,9 +1,10 @@
 /**
- * esta funcion eleva un numero regresa el resultado
- * @param {number} Numero base de la exponenciacion
- * @param {number} Numero exponente de la exponenciacion
- * @returns number
+ * Esta funcion recibe un numero y lo va a elevar
+ * @param {Number} numerobase numero que se va a elevar
+ * @param {Number} exponente exponenete Potencia a la que se elvara
+ * @returns Number
  */
-function potencia(numBase,numExponente){
-    return numBase * numExponente;
+
+export function potencia(numerobase, exponente) {
+    return numerobase * exponente;
 }
