@@ -19,20 +19,23 @@ var pool = sql.createPool({
  *     description: Devuelve todos los empleados en la tabla.
 */
 
-router.get('', function (req, res) {
-    console.log(req.body)
-    if (req.body.idEmpleado == undefined) {
-        pool.query('SELECT * FROM empleado', function (err, response, fields) {
-            res.send(JSON.stringify(response))
-        })
-    }
-    else {
-        pool.query('SELECT * FROM empleado WHERE IdEmpleado =' + req.body, function () {
-            res.send(JSON.stringify(response))
-        })
-    }
-})
+router.get('/', function (req, res) {
 
+    try {
+
+        pool.query('SELECT * FROM empleado', function (err, response, fields) {
+
+            res.send(JSON.stringify(response))
+
+        })
+
+    } catch (error) {
+
+        res.status(404).send('Sorry, cant find that');
+
+    }
+
+})
 
 /**
  * @swagger
@@ -44,7 +47,7 @@ router.get('', function (req, res) {
  *     description: Inserta los empleados a la BD.
 */
 
-router.post('', function (req, res) {
+router.post('/', function (req, res) {
     console.log(req.body)
 
     let nombre = req.body.nombre
@@ -82,7 +85,7 @@ router.delete('/:IdEmpleado', function (req, res) {
  *    200:
  *     description: Actualiza los datos del empleado ingresando su id en el body
 */
-router.put('', function (req, res) {
+router.put('/', function (req, res) {
     let IdEmpleado = req.body.IdEmpleado
     nombre = req.body.nombre
     apellido = req.body.apellido

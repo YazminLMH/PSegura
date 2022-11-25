@@ -19,7 +19,7 @@ describe('Inserta un empleado: ', () => {
 describe('Obtiene empleados: ', () => {
     it('Deberia obtener todos los empleados', (done) => {
         chai.request(url)
-            .get('/empleado')
+            .get('/Empleado')
             .set('Accept', 'application/json')
             .send()
             .end(function (err, res) {
